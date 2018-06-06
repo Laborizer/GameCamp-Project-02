@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Player2Movement : MonoBehaviour {
 	AudioSource audiosource;
+    public AudioClip JumpSound;
 
-	public float speed;
+    public float speed;
 	private Rigidbody2D rb;
 	bool isGrounded;
 	public float jumpForce;
@@ -25,13 +26,16 @@ public class Player2Movement : MonoBehaviour {
 		audiosource.pitch = 1f;
 	}
 
-	void OnCollisionStay2D()
-	{
-		isGrounded = true;
-	}
+    private void OnCollisionStay2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Floor" || col.gameObject.name == "Player1")
+        {
+            isGrounded = true;
+        }
+    }
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update () {
 
 		float moveHorizontal = Input.GetAxis("Horizontal2");
 		Vector2 movement = new Vector2(moveHorizontal, 0);
@@ -54,7 +58,8 @@ public class Player2Movement : MonoBehaviour {
 	public void Jump(){
 		if (Input.GetKeyDown(KeyCode.RightControl) && isGrounded)
 		{
-			rb.AddForce(jump * jumpForce, ForceMode2D.Impulse);
+            audiosource.PlayOneShot(JumpSound, 0.5f);
+            rb.AddForce(jump * jumpForce, ForceMode2D.Impulse);
 			isGrounded = false;
 		}
 	}

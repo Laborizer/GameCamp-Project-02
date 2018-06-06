@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player1Movement : MonoBehaviour {
 	AudioSource audiosource;
+    public AudioClip JumpSound;
 
     public float speed;
     private Rigidbody2D rb;
@@ -24,11 +25,13 @@ public class Player1Movement : MonoBehaviour {
 		audiosource = GetComponent<AudioSource> ();
 		audiosource.pitch = 1f;
 	}
-
-	void OnCollisionStay2D()
-	{
-		isGrounded = true;
-	}
+    private void OnCollisionStay2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Floor" || col.gameObject.name == "Player2")
+        {
+            isGrounded = true;
+        }
+    }
 
 	// Update is called once per frame
 	void Update () {
@@ -54,6 +57,7 @@ public class Player1Movement : MonoBehaviour {
     public void Jump(){
 		if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
+            audiosource.PlayOneShot(JumpSound,0.5f);
 			rb.AddForce(jump * jumpForce, ForceMode2D.Impulse);
 			isGrounded = false;
         }
