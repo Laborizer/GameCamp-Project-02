@@ -7,7 +7,8 @@ public class Player2Movement : MonoBehaviour {
     public AudioClip JumpSound;
 
     public float speed;
-	private Rigidbody2D rb;
+    public float rocketSpeed;
+    private Rigidbody2D rb;
 	bool isGrounded;
 	public float jumpForce;
 	public float rotateSpeed;
@@ -43,6 +44,7 @@ public class Player2Movement : MonoBehaviour {
 		Move(movement, speed);
 		Jump();
 		Rotate();
+        Boost();
 	}
 
 	public void Move(Vector2 movement, float speed) {
@@ -73,4 +75,11 @@ public class Player2Movement : MonoBehaviour {
 			transform.Rotate (Vector3.back, rotateSpeed * Time.deltaTime);
 		}
 	}
+
+    public void Boost() {
+
+        if (Input.GetKey(KeyCode.RightShift)) {
+            rb.AddForce(transform.right * rocketSpeed);
+        }
+    }
 }

@@ -290,7 +290,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpSound: {fileID: 8300000, guid: 84882b260e6897146ae0fc7bd8697463, type: 3}
-  speed: 15
+  speed: 12
+  rocketSpeed: 8
   jumpForce: 0
   rotateSpeed: 250
   zRotation: 0
@@ -1362,7 +1363,7 @@ Prefab:
     - target: {fileID: 114805149033774708, guid: 9293c8094c2e7294bbae48223cb2c983,
         type: 2}
       propertyPath: speed
-      value: 15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 50627535929356624, guid: 9293c8094c2e7294bbae48223cb2c983,
         type: 2}
@@ -1382,6 +1383,11 @@ Prefab:
     - target: {fileID: 1390903000571462, guid: 9293c8094c2e7294bbae48223cb2c983, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114805149033774708, guid: 9293c8094c2e7294bbae48223cb2c983,
+        type: 2}
+      propertyPath: rocketSpeed
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9293c8094c2e7294bbae48223cb2c983, type: 2}

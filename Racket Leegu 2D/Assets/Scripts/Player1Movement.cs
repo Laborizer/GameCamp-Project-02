@@ -7,6 +7,7 @@ public class Player1Movement : MonoBehaviour {
     public AudioClip JumpSound;
 
     public float speed;
+    public float rocketSpeed;
     private Rigidbody2D rb;
 	bool isGrounded;
 	public float jumpForce;
@@ -25,6 +26,7 @@ public class Player1Movement : MonoBehaviour {
 		audiosource = GetComponent<AudioSource> ();
 		audiosource.pitch = 1f;
 	}
+
     private void OnCollisionStay2D(Collision2D col)
     {
         if (col.gameObject.tag == "Floor" || col.gameObject.name == "Player2")
@@ -42,6 +44,7 @@ public class Player1Movement : MonoBehaviour {
         Move(movement, speed);
         Jump();
         Rotate();
+        Boost();
     }
 
     public void Move(Vector2 movement, float speed) {
@@ -71,5 +74,12 @@ public class Player1Movement : MonoBehaviour {
 		else if (Input.GetKey (KeyCode.S)) {
 			transform.Rotate (Vector3.back, rotateSpeed * Time.deltaTime);
 		}
+    }
+
+    public void Boost() {
+
+        if(Input.GetKey(KeyCode.LeftShift)) {
+            rb.AddForce(transform.right * rocketSpeed);
+        }
     }
 }
