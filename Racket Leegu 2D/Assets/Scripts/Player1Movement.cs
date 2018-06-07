@@ -6,6 +6,8 @@ public class Player1Movement : MonoBehaviour {
 	AudioSource audiosource;
     public AudioClip JumpSound;
 
+    public bool facingRight;
+
     public float speed;
     public float rocketSpeed;
     private Rigidbody2D rb;
@@ -22,6 +24,7 @@ public class Player1Movement : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
 		jump = new Vector3 (0.0f, 2.0f, 0.0f);
 		jumpForce = 3f;
+        facingRight = true;
 
 		audiosource = GetComponent<AudioSource> ();
 		audiosource.pitch = 1f;
@@ -48,13 +51,29 @@ public class Player1Movement : MonoBehaviour {
     }
 
     public void Move(Vector2 movement, float speed) {
-		if ((Input.GetKey (KeyCode.A) || Input.GetKey (KeyCode.D)) && audiosource.pitch <= 2f) {
-			audiosource.pitch += Time.deltaTime * 1.1f;
-		} else if (audiosource.pitch >= 1f) {
-			audiosource.pitch -= Time.deltaTime * 1.1f;
-		}
+        if (Input.GetKey(KeyCode.D) && audiosource.pitch <= 2f) {
+            audiosource.pitch += Time.deltaTime * 1.1f;
 
-		rb.AddForce(movement * speed);
+            if(!facingRight) {
+                transform.Rotate(new Vector3(0, 180, 0));
+                facingRight = true;
+            }
+        }
+
+        else if (Input.GetKey(KeyCode.A) && audiosource.pitch <= 2f) {
+            audiosource.pitch += Time.deltaTime * 1.1f;
+
+            if(facingRight) {
+                transform.Rotate(new Vector3(0, -180, 0));
+                facingRight = false;
+            }
+        }
+
+        else if (audiosource.pitch >= 1f) {
+            audiosource.pitch -= Time.deltaTime * 1.1f;
+        }
+
+        rb.AddForce(movement * speed);
     }
 
     public void Jump(){
