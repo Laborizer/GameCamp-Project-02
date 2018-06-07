@@ -290,6 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpSound: {fileID: 8300000, guid: 84882b260e6897146ae0fc7bd8697463, type: 3}
+  facingRight: 0
   speed: 12
   rocketSpeed: 8
   jumpForce: 0
@@ -1311,7 +1312,13 @@ Prefab:
       propertyPath: BallBounce
       value: 
       objectReference: {fileID: 8300000, guid: 69f88ad53c519a744afad6613197829a, type: 3}
-    m_RemovedComponents: []
+    - target: {fileID: 82423216264570964, guid: cad9aa5f7c9df12468b5b15087baf56e,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114010492872022240, guid: cad9aa5f7c9df12468b5b15087baf56e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: cad9aa5f7c9df12468b5b15087baf56e, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1617556958
@@ -1756,4 +1763,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a05594030ab99e94bb322d05a6f85045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BallBounce: {fileID: 0}
+  BallBounce1: {fileID: 8300000, guid: 69f88ad53c519a744afad6613197829a, type: 3}
+  BallBounce2: {fileID: 8300000, guid: ce5d35c6827d76744b130dd28cb516d7, type: 3}
+  BallBounce3: {fileID: 8300000, guid: a9b965b719801d14ab181a710c5060ed, type: 3}
+  Goal: {fileID: 8300000, guid: 0bed0e9cf2ee7444dbd0af434ad63ceb, type: 3}
+  RimShot: {fileID: 8300000, guid: 10bf8b833be05a246bf01e1293e9d094, type: 3}
+  Crowd: {fileID: 8300000, guid: 728e98a1033c02d478f42110d74dc0d6, type: 3}
