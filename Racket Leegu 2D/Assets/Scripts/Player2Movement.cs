@@ -101,4 +101,9 @@ public class Player2Movement : MonoBehaviour {
             rb.AddForce(transform.right * rocketSpeed);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+    }
 }
