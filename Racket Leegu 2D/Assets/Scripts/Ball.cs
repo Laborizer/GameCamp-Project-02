@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Ball : MonoBehaviour {
+    public bool scored;
+    public bool p1Goal;
+    public bool p2Goal;
+
     int random;
     public int player1Goal;
     public int player2Goal;
@@ -18,6 +22,9 @@ public class Ball : MonoBehaviour {
     private void Start()
     {
         audiosource = GetComponent<AudioSource>();
+        scored = false;
+        p1Goal = false;
+        p2Goal = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -48,12 +55,14 @@ public class Ball : MonoBehaviour {
         {
             playWin();
             player2Goal++;
+            p2Goal = true;
         }
 
         if (collision.gameObject.name == "RightGoal")
         {
             playWin();
             player1Goal++;
+            p1Goal = true;
         }
     }
     private void playWin()
