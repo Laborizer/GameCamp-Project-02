@@ -5,6 +5,8 @@ using UnityEngine;
 public class Ball : MonoBehaviour {
     int random;
     public bool scored;
+    public bool p1Goal;
+    public bool p2Goal;
 
     AudioSource audiosource;
     public AudioClip BallBounce1;
@@ -18,6 +20,8 @@ public class Ball : MonoBehaviour {
     {
         audiosource = GetComponent<AudioSource>();
         scored = false;
+        p1Goal = false;
+        p2Goal = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -30,6 +34,16 @@ public class Ball : MonoBehaviour {
 
             if(top)
             {
+
+                if(collision.gameObject.name == "LeftGoal")
+                {
+                    p2Goal = true;
+                }
+                else if(collision.gameObject.name == "RightGoal")
+                {
+                    p1Goal = true;
+                }
+
                 audiosource.PlayOneShot(Goal, 0.8f);
                 audiosource.PlayOneShot(Crowd, 0.5f);
 
