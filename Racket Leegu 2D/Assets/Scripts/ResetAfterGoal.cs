@@ -14,9 +14,13 @@ public class ResetAfterGoal : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(GameObject.Find("Ball").GetComponent<Ball>().scored)
+        if (Input.GetKey(KeyCode.Escape))
         {
-            if(resetTimer >= 3)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (GameObject.Find("Ball").GetComponent<Ball>().scored)
+        {
+            if(resetTimer >= 2)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 

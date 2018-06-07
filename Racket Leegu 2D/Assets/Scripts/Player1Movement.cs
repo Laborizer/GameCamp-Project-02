@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -49,6 +50,15 @@ public class Player1Movement : MonoBehaviour {
         Jump();
         Rotate();
         Boost();
+        Exit();
+    }
+
+    private void Exit()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     public void Move(Vector2 movement, float speed) {

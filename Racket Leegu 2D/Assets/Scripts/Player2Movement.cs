@@ -98,7 +98,7 @@ public class Player2Movement : MonoBehaviour {
     public void Boost() {
 
         if (Input.GetKey(KeyCode.RightShift)) {
-            rb.AddForce(transform.right * rocketSpeed);
+            rb.AddForce(-transform.right * rocketSpeed);
         }
     }
 
