@@ -23,8 +23,6 @@ public class Ball : MonoBehaviour {
     {
         audiosource = GetComponent<AudioSource>();
         scored = false;
-        p1Goal = false;
-        p2Goal = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -55,14 +53,14 @@ public class Ball : MonoBehaviour {
         {
             playWin();
             player2Goal++;
-            p2Goal = true;
+            scored = true;
         }
 
         if (collision.gameObject.name == "RightGoal")
         {
             playWin();
             player1Goal++;
-            p1Goal = true;
+            scored = true;
         }
     }
     private void playWin()
