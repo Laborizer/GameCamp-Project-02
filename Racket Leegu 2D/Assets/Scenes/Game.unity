@@ -1926,6 +1926,11 @@ Prefab:
       propertyPath: rocketSpeed
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114805149033774708, guid: 9293c8094c2e7294bbae48223cb2c983,
+        type: 2}
+      propertyPath: CrashSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1056c259d75dad44ba06207d17fdbbb3, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9293c8094c2e7294bbae48223cb2c983, type: 2}
   m_IsPrefabParent: 0
