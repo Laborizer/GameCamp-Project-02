@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour {
     int random;
+    public bool scored;
 
     AudioSource audiosource;
     public AudioClip BallBounce1;
@@ -16,11 +17,12 @@ public class Ball : MonoBehaviour {
     private void Start()
     {
         audiosource = GetComponent<AudioSource>();
+        scored = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.gameObject.name == "LeftGoal" || collision.collider.gameObject.name == "RightGoal")
+        if(collision.gameObject.name == "LeftGoal" || collision.gameObject.name == "RightGoal")
         {
             Vector3 contactPoint = collision.contacts[0].point;
             Vector3 center = collision.collider.bounds.center;
@@ -30,6 +32,8 @@ public class Ball : MonoBehaviour {
             {
                 audiosource.PlayOneShot(Goal, 0.8f);
                 audiosource.PlayOneShot(Crowd, 0.5f);
+
+                scored = true;
             }
             else
             {
