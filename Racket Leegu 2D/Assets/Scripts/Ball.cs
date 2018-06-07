@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour {
     int random;
+    public int player1Goal;
+    public int player2Goal;
 
     AudioSource audiosource;
     public AudioClip BallBounce1;
@@ -20,21 +22,9 @@ public class Ball : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.collider.gameObject.name == "LeftGoal" || collision.collider.gameObject.name == "RightGoal")
+        if(collision.gameObject.name == "LeftHoop" || collision.gameObject.name == "RightHoop")
         {
-            Vector3 contactPoint = collision.contacts[0].point;
-            Vector3 center = collision.collider.bounds.center;
-            bool top = contactPoint.y > center.y;
-
-            if(top)
-            {
-                audiosource.PlayOneShot(Goal, 0.8f);
-                audiosource.PlayOneShot(Crowd, 0.5f);
-            }
-            else
-            {
-                audiosource.PlayOneShot(RimShot, 2f);
-            }
+            audiosource.PlayOneShot(RimShot, 2f);
         }
         else
         {
@@ -53,5 +43,22 @@ public class Ball : MonoBehaviour {
                 audiosource.PlayOneShot(BallBounce3, 0.5f);
             }
         }
+
+        if (collision.gameObject.name == "LeftGoal")
+        {
+            playWin();
+            player2Goal++;
+        }
+
+        if (collision.gameObject.name == "RightGoal")
+        {
+            playWin();
+            player1Goal++;
+        }
+    }
+    private void playWin()
+    {
+        audiosource.PlayOneShot(Goal, 0.8f);
+        audiosource.PlayOneShot(Crowd, 0.5f);
     }
 }
