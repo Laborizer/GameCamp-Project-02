@@ -22,7 +22,7 @@ public class Ball : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.name == "LeftHoop" || collision.gameObject.name == "RightHoop")
+        if(collision.gameObject.tag == "Hoop")
         {
             audiosource.PlayOneShot(RimShot, 2f);
         }
