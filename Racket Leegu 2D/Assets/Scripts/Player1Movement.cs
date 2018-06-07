@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player1Movement : MonoBehaviour {
 	AudioSource audiosource;
     public AudioClip JumpSound;
+    public AudioClip CrashSound;
 
     public bool facingRight;
 
@@ -99,6 +100,14 @@ public class Player1Movement : MonoBehaviour {
 
         if(Input.GetKey(KeyCode.LeftShift)) {
             rb.AddForce(transform.right * rocketSpeed);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Player2")
+        {
+            audiosource.PlayOneShot(CrashSound, 0.8f);
         }
     }
 }
