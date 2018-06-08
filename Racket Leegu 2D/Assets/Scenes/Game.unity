@@ -418,7 +418,7 @@ MonoBehaviour:
   rocketBoost: {fileID: 8300000, guid: a8d0629195cc4064eba0c49e5dbe53b8, type: 3}
   facingRight: 0
   speed: 12
-  rocketSpeed: 8
+  rocketSpeed: 15
   jumpForce: 0
   rotateSpeed: 250
   zRotation: 0
@@ -2895,7 +2895,7 @@ Prefab:
     - target: {fileID: 114805149033774708, guid: 9293c8094c2e7294bbae48223cb2c983,
         type: 2}
       propertyPath: rocketSpeed
-      value: 8
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 114805149033774708, guid: 9293c8094c2e7294bbae48223cb2c983,
         type: 2}
