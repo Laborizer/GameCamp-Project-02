@@ -7,6 +7,7 @@ public class Player1Movement : MonoBehaviour {
 	AudioSource audiosource;
     public AudioClip JumpSound;
     public AudioClip CrashSound;
+    public AudioClip rocketBoost;
 
     public bool facingRight;
 
@@ -110,6 +111,10 @@ public class Player1Movement : MonoBehaviour {
 
         if(Input.GetKey(KeyCode.LeftShift)) {
             rb.AddForce(transform.right * rocketSpeed);
+
+            if(Input.GetKeyDown(KeyCode.LeftShift)) {
+                audiosource.PlayOneShot(rocketBoost, 1f);
+            }
         }
     }
 

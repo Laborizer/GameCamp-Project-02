@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player2Movement : MonoBehaviour {
 	AudioSource audiosource;
     public AudioClip JumpSound;
+    public AudioClip rocketBoost;
 
     public bool facingRight;
 
@@ -99,6 +100,11 @@ public class Player2Movement : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.RightShift)) {
             rb.AddForce(-transform.right * rocketSpeed);
+
+            if (Input.GetKeyDown(KeyCode.RightShift))
+            {
+                audiosource.PlayOneShot(rocketBoost, 1f);
+            }
         }
     }
 

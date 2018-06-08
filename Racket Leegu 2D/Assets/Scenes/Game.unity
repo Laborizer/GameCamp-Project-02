@@ -278,6 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpSound: {fileID: 8300000, guid: 84882b260e6897146ae0fc7bd8697463, type: 3}
+  rocketBoost: {fileID: 8300000, guid: a8d0629195cc4064eba0c49e5dbe53b8, type: 3}
   facingRight: 0
   speed: 12
   rocketSpeed: 8
@@ -2709,6 +2710,11 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114805149033774708, guid: 9293c8094c2e7294bbae48223cb2c983,
+        type: 2}
+      propertyPath: rocketBoost
+      value: 
+      objectReference: {fileID: 8300000, guid: a8d0629195cc4064eba0c49e5dbe53b8, type: 3}
     m_RemovedComponents:
     - {fileID: 23401698218863288, guid: 9293c8094c2e7294bbae48223cb2c983, type: 2}
     - {fileID: 33248302750469392, guid: 9293c8094c2e7294bbae48223cb2c983, type: 2}
